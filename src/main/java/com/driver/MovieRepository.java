@@ -27,9 +27,7 @@ public class MovieRepository {
 
     public void saveMovieDirectorPair(String movie, String director){
         if(movieMap.containsKey(movie) && directorMap.containsKey(director)){
-//            movieMap.put(movie, movieMap.get(movie));
-//            directorMap.put(director, directorMap.get(director));
-            List<String> currentMovies = new ArrayList<String>();
+            List<String> currentMovies = new ArrayList<>();
             if(directorMovieMapping.containsKey(director)) currentMovies = directorMovieMapping.get(director);
             currentMovies.add(movie);
             directorMovieMapping.put(director, currentMovies);
@@ -45,7 +43,7 @@ public class MovieRepository {
     }
 
     public List<String> findMoviesFromDirector(String director){
-        List<String> moviesList = new ArrayList<String>();
+        List<String> moviesList = new ArrayList<>();
         if(directorMovieMapping.containsKey(director)) moviesList = directorMovieMapping.get(director);
         return moviesList;
     }
@@ -55,7 +53,7 @@ public class MovieRepository {
     }
 
     public void deleteDirector(String director){
-        List<String> movies = new ArrayList<String>();
+        List<String> movies = new ArrayList<>();
         if(directorMovieMapping.containsKey(director)){
             movies = directorMovieMapping.get(director);
             for(String movie: movies){
